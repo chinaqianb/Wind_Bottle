@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "wind_bottle",
+  "version": "${version}",
+  "name": "wind_bottle",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/qiancong/wind_bottle"
+  },
+  "license": "MIT",
+  "icon": "assets/wind_bottle/wind_bottle.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "minecraftgtyf1.wind_bottle.client.Wind_bottleClient"
+    ],
+    "main": [
+      "minecraftgtyf1.wind_bottle.Wind_bottle"
+    ]
+  },
+  "mixins": [
+    "wind_bottle.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
