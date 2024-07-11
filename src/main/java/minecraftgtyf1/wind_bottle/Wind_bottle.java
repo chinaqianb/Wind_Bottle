@@ -2,8 +2,6 @@ package minecraftgtyf1.wind_bottle;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
-import net.fabricmc.fabric.api.item.v1.FabricItem;
-import net.fabricmc.fabric.api.item.v1.FabricItemStack;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -25,5 +23,6 @@ public class Wind_bottle implements ModInitializer {
             wind_event.getEvent(world,player,hand,entity);
             return ActionResult.PASS;
         }));
+
     }
 }
