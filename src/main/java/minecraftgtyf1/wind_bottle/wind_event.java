@@ -19,32 +19,41 @@ import org.slf4j.Logger;
 
 public class wind_event  {
     Logger log = LogUtils.getLogger();
-    public static void getEvent(World world,PlayerEntity player,Hand hand,Entity entity) {
-
+    public static boolean getEvent(World world,PlayerEntity player,Hand hand,Entity entity) {
+     boolean result =false;
         ItemStack stack = player.getStackInHand(hand);
-        if (world.isClient()) {
             if (stack.getItem() == Items.GLASS_BOTTLE) {
                 if (entity.getType() == EntityType.BREEZE) {
+                    if (!world.isClient()) {
                     stack.decrement(1);
                     player.giveItemStack(Wind_bottle.wind_bottle.getDefaultStack());
-                    play_wind_sound(world, player);
-                } else if (entity.getType() == EntityType.WIND_CHARGE) {
-                    stack.decrement(1);
-                    entity.kill();
-                    player.giveItemStack(Wind_bottle.wind_bottle.getDefaultStack());
-                    play_wind_sound(world, player);
-                } else if (entity.getType() == EntityType.BREEZE_WIND_CHARGE) {
-                    stack.decrement(1);
-                    entity.kill();
-                    player.giveItemStack(Wind_bottle.wind_bottle.getDefaultStack());
-                    play_wind_sound(world, player);
+                }else {
 
+                    play_wind_sound(world, player);
+                     }
+                    result= true;
+                } else if (entity.getType() == EntityType.WIND_CHARGE) {
+                if (!world.isClient()){
+                        stack.decrement(1);
+                        entity.kill();
+                        player.giveItemStack(Wind_bottle.wind_bottle.getDefaultStack());
+                    }else {
+
+                    play_wind_sound(world, player);
+                }
+                    result= true;
+                } else if (entity.getType() == EntityType.BREEZE_WIND_CHARGE) {
+                    if (!world.isClient()) {
+                        stack.decrement(1);
+                        entity.kill();
+                        player.giveItemStack(Wind_bottle.wind_bottle.getDefaultStack());
+                    }else {
+                        play_wind_sound(world, player);
+                    }
+                    result= true;
                 }
             }
-        }
-
-
-
+            return result;
 
     }
     public static void play_wind_sound(World world,PlayerEntity player){

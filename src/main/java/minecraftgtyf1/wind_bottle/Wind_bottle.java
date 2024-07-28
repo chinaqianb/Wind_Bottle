@@ -1,8 +1,10 @@
 package minecraftgtyf1.wind_bottle;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.client.option.KeyBinding;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.recipe.RecipeSerializer;
@@ -20,9 +22,12 @@ public class Wind_bottle implements ModInitializer {
         Registry.register(Registries.ITEM, Identifier.of("wind_bottle","wind_bottle"),wind_bottle);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> entries.add(wind_bottle));
         UseEntityCallback.EVENT.register(((player, world, hand, entity, hitResult) -> {
-            wind_event.getEvent(world,player,hand,entity);
-            return ActionResult.PASS;
+          boolean res=  wind_event.getEvent(world,player,hand,entity);
+          if (res){
+              return ActionResult.SUCCESS;
+          }else return ActionResult.PASS;
+
         }));
 
-    }
+   }
 }
