@@ -4,6 +4,7 @@
   "package": "minecraftgtyf1.wind_bottle.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "ChangeOminousItemSpawnerEntity"
   ],
   "client": [
   ],
