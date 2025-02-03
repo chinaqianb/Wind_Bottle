@@ -71,6 +71,7 @@ public class wind_Recipe extends SpecialCraftingRecipe {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return Wind_bottle.recipe;
+//        return Wind_bottle.recipe;
+        return null;
     }
 }
