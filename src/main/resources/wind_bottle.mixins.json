@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "chinaqianb.wind_bottle.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "wind_bottle.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
