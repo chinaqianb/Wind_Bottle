@@ -29,7 +29,7 @@ Added the ability to right-click Flint in OminousItemSpawnerEntity to get the co
 But there is still one bug at the moment:
 Quickly collecting two items in a row with flint after the OminousItemSpawnerEntity appears will cause the current spawner to no longer generate the OminousItemSpawnerEntity
 # 1.2.0
-<a id="craft">
+<a id="craft">here</a>
 删除了工作台分解的方式，添加了许多种分解方式：
   
 条件>在以玩家为半径10格范围内:
