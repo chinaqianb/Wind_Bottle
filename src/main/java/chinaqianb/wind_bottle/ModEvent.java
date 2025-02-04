@@ -66,11 +66,8 @@ public class ModEvent {
     @SubscribeEvent
     public static void ServerTickEvent(EntityTickEvent.Post event){
              Entity entity=event.getEntity();
-//            Level world =entity.level();
-
            Level world= entity.level();
-//           AABB aabb =new AABB(player.getX()-10,player.getY()-10,player.getZ()-10,player.getX()+10,player.getY()+10,player.getZ()+10);
-//           List<Entity> entities =level.getEntities(player,aabb);
+
             if (world instanceof ServerLevel){
             if (entity instanceof ItemEntity) {
 
