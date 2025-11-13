@@ -1,13 +1,13 @@
 package chinaqianb.wind_bottle;
 
 import com.mojang.logging.LogUtils;
-import net.minecraft.client.gui.font.providers.UnihexProvider;
+
 import net.minecraft.core.BlockPos;
-import net.minecraft.data.worldgen.DimensionTypes;
+
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.profiling.jfr.event.ServerTickTimeEvent;
+
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -15,29 +15,24 @@ import net.minecraft.world.entity.animal.Fox;
 import net.minecraft.world.entity.decoration.ItemFrame;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
+
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
-import net.minecraft.world.level.biome.Biome;
+
 import net.minecraft.world.level.biome.Biomes;
-import net.minecraft.world.level.dimension.DimensionDefaults;
-import net.minecraft.world.level.dimension.DimensionType;
-import net.minecraft.world.phys.AABB;
+
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
-import net.neoforged.neoforge.event.server.ServerStartedEvent;
-import net.neoforged.neoforge.event.server.ServerStartingEvent;
+
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
-import net.neoforged.neoforge.event.tick.ServerTickEvent;
+
 import org.slf4j.Logger;
 
-import java.util.List;
 
 @EventBusSubscriber(modid = Wind_bottle.MODID)
 public class ModEvent {
@@ -69,9 +64,8 @@ public class ModEvent {
            Level world= entity.level();
 
             if (world instanceof ServerLevel){
-            if (entity instanceof ItemEntity) {
+            if (entity instanceof ItemEntity itemEntity) {
 
-                ItemEntity itemEntity = (ItemEntity) entity;
                 BlockPos pos = new BlockPos((int) itemEntity.getX(), (int) itemEntity.getY(), (int) itemEntity.getZ());
                 if (itemEntity.getItem().getItem() == Wind_bottle.wind_bottle.get()) {
                     if (world.getBrightness(LightLayer.BLOCK,pos)>=10 || itemEntity.isInWater() || world.getBiome(pos).is(Biomes.DESERT) || world.dimension() == Level.NETHER) {
@@ -116,8 +110,7 @@ public class ModEvent {
                         tick = 0;
                     }
                 }
-            } else if (entity instanceof ItemFrame) {
-                ItemFrame frame = (ItemFrame) entity;
+            } else if (entity instanceof ItemFrame frame) {
                 if (frame.getItem().getItem() == Wind_bottle.wind_bottle.get()) {
                     itemEntityHander(world, frame);
                     frame.setItem(ItemStack.EMPTY);
