@@ -1,4 +1,5 @@
-# Wind_Bottle
+# Wind_Bottle [![Modrinth Version](https://img.shields.io/modrinth/v/CE9uFiv4)](https://modrinth.com/mod/wind-bottle)
+
 当你想在生存游玩风弹的，时候却发现杀死旋风人 只能合成8个风弹 ，
 这模组会很好的帮你解决这个问题，它可以通过三种方式：
 
